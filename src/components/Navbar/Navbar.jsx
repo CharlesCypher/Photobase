@@ -9,7 +9,7 @@ const Navbar = () => {
         <h2 className="text-xl md:text-2xl font-semibold">
           <Link to="/">Grambase</Link>
         </h2>
-        <ul className="hidden md:flex gap-x-10 text-base md:text-lg">
+        <ul className="hidden md:flex items-center gap-x-10 text-base md:text-lg">
           <li>
             <Link to="/">Home</Link>
           </li>
