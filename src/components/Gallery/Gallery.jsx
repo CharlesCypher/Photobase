@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Gallery = () => {
   return (
-    <motion.div className="w-full py-20">
+    <motion.div className="w-full pb-20">
       <UploadForm />
       <Photos />
     </motion.div>
