@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import ProgressBar from "../Progress/ProgressBar";
 
 const UploadForm = () => {
@@ -18,7 +18,7 @@ const UploadForm = () => {
   };
   return (
     <>
-      <form className="mb-8" onChange={changeHandler}>
+      <motion.form className="mb-8" onChange={changeHandler} initial={{ y: -100 }} animate={{ y: 0 }} style={{ translateY: 0 }}>
         <div className="flex items-center justify-center w-full">
           <label
             htmlFor="dropzone-file"
@@ -48,7 +48,7 @@ const UploadForm = () => {
             <input id="dropzone-file" type="file" className="hidden" />
           </label>
         </div>
-      </form>
+      </motion.form>
       {file && (
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mb-2">
           {file.name}

@@ -6,8 +6,10 @@ const Navbar = () => {
   return (
     <header>
       <nav className="w-full h-20 flex justify-between items-center">
-        <h2 className="text-base">Grambase</h2>
-        <ul className="hidden md:flex gap-x-10 text-base">
+        <h2 className="text-xl md:text-2xl font-semibold">
+          <Link to="/">Grambase</Link>
+        </h2>
+        <ul className="hidden md:flex gap-x-10 text-base md:text-lg">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -18,7 +20,7 @@ const Navbar = () => {
             <Link to="/">About</Link>
           </li>
         </ul>
-        <button className="text-base" onClick={() => signOut(auth)}>
+        <button className="text-base md:text-lg border border-black px-6 py-2 rounded-md" onClick={() => signOut(auth)}>
           Sign out
         </button>
       </nav>

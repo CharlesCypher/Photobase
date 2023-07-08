@@ -1,12 +1,13 @@
 import Photos from "../Photos/Photos";
 import UploadForm from "../Upload/UploadForm";
+import { motion } from "framer-motion";
 
 const Gallery = () => {
   return (
-    <section className="w-full py-20">
+    <motion.div className="w-full py-20">
       <UploadForm />
       <Photos />
-    </section>
+    </motion.div>
   );
 };
 
