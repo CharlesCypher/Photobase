@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../config/firebase";
 
 const Navbar = () => {
   return (
@@ -16,10 +18,8 @@ const Navbar = () => {
             <Link to="/">About</Link>
           </li>
         </ul>
-        <button>
-          <Link to="/login" className="text-base">
-            Login
-          </Link>
+        <button className="text-base" onClick={() => signOut(auth)}>
+          Sign out
         </button>
       </nav>
     </header>

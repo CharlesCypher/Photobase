@@ -1,4 +1,1 @@
-# Grambase
-# Grambase
-# Photobase
 # Photobase

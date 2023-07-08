@@ -12,7 +12,7 @@ const useFirestore = (collections) => {
       (snapshot) => {
         const documents = [];
         snapshot.forEach((doc) => {
-          documents.push({ ...doc.data(), id: doc.id });
+          documents.push({ ...doc?.data(), id: doc?.id });
         });
         setDocs(documents);
       },

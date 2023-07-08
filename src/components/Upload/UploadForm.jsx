@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import ProgressBar from "../Progress/ProgressBar";
 
 const UploadForm = () => {
@@ -48,9 +49,17 @@ const UploadForm = () => {
           </label>
         </div>
       </form>
-      {file && <p className="text-center mb-2">{file.name}</p>}
+      {file && (
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mb-2">
+          {file.name}
+        </motion.p>
+      )}
       {file && <ProgressBar file={file} setFile={setFile} />}
-      {error && <p className="text-center">{error}</p>}
+      {error && (
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
+          {error}
+        </motion.p>
+      )}
     </>
   );
 };
