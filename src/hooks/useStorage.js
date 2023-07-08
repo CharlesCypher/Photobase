@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const useStorage = (file) => {
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
 
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);

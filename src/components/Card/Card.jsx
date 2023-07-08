@@ -8,7 +8,7 @@ const Card = () => {
       {docs
         ?.sort((a, b) => b.createdAt - a.createdAt)
         .map((image) => (
-          <motion.div className="w-full h-80 overflow-hidden cursor-pointer" key={image?.id} layout>
+          <motion.div className="w-full h-80 cursor-pointer" key={image?.id} layout>
             <motion.img
               src={image?.url}
               alt={""}
@@ -17,9 +17,7 @@ const Card = () => {
               animate={{ opacity: 1 }}
               loading="lazy"
             />
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              {image?.user}
-            </motion.p>
+            <p className="text-black">{image?.user}</p>
           </motion.div>
         ))}
       {error && (
