@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
-import { onSnapshot, collection } from "firebase/firestore";
+import { onSnapshot, collection, orderBy } from "firebase/firestore";
 
 const useFirestore = (collections) => {
   const [docs, setDocs] = useState([]);
@@ -9,6 +9,7 @@ const useFirestore = (collections) => {
   useEffect(() => {
     const unsub = onSnapshot(
       collection(db, "images"),
+      orderBy("createdAt", "desc"),
       (snapshot) => {
         const documents = [];
         snapshot.forEach((doc) => {
