@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { db, storage } from "../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { AuthContext } from "../context/AuthContext";
 
 const useStorage = (file) => {
+  const { currentUser } = useContext(AuthContext);
+
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const storageRef = ref(storage, file.name);
@@ -18,6 +22,7 @@ const useStorage = (file) => {
       (snapshot) => {
         const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setProgress(percentage);
+        setUser(currentUser?.displayName);
       },
       (error) => {
         setError(error);
@@ -25,7 +30,7 @@ const useStorage = (file) => {
       async () => {
         const url = await getDownloadURL(uploadTask.snapshot.ref);
         const createdAt = serverTimestamp();
-        await setDoc(collectionRef, { url: url, createdAt: createdAt });
+        await setDoc(collectionRef, { url: url, createdAt: createdAt, user: user });
         setUrl(url);
       }
     );

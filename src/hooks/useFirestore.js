@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
-import { onSnapshot, collection, orderBy } from "firebase/firestore";
+import { onSnapshot, collection, orderBy, limit } from "firebase/firestore";
 
 const useFirestore = (collections) => {
   const [docs, setDocs] = useState([]);
+  // const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
