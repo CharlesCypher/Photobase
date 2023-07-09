@@ -30,7 +30,8 @@ const useStorage = (file) => {
         const url = await getDownloadURL(uploadTask.snapshot.ref);
         const createdAt = serverTimestamp();
         const user = currentUser?.displayName;
-        await setDoc(collectionRef, { url: url, createdAt: createdAt, user: user });
+        const userPhoto = currentUser?.photoURL;
+        await setDoc(collectionRef, { url: url, createdAt: createdAt, user: user, userPhoto: userPhoto });
         setUrl(url);
       }
     );

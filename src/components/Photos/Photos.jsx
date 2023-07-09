@@ -21,9 +21,12 @@ const Photos = () => {
               animate={{ opacity: 1 }}
               loading="lazy"
             />
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute left-4 bottom-2 text-white font-caveat text-xl">
-              {truncate(image?.user, 12)}
-            </motion.p>
+            <motion.div className="w-full flex justify-between items-center absolute bottom-2 text-white font-caveat text-xl px-3 z-20">
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="">
+                {truncate(image?.user, 16)}
+              </motion.p>
+              <motion.img src={image?.userPhoto} className="block sm:w-8 sm:h-8 rounded-full" />
+            </motion.div>
           </motion.div>
         ))}
       {error && (
