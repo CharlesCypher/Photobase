@@ -28,7 +28,7 @@ const Photos = ({ setSelectedImg }) => {
           <div className="relative" key={image?.id}>
             <div className="">
               <motion.div
-                className="relative w-full h-80 overflow-hidden cursor-pointer photo-card__wrapper"
+                className="relative w-full h-80 overflow-hidden rounded-md cursor-pointer photo-card__wrapper"
                 layout
                 onClick={() => setSelectedImg(image?.url)}
               >
