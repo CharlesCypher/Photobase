@@ -1,0 +1,11 @@
+.photo-card__wrapper::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(224, 86, 141);
+    background: linear-gradient(0deg, rgba(224, 86, 141, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
