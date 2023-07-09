@@ -1,23 +1,26 @@
+import { useState } from "react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, provider);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(error?.message);
     }
   };
   return (
-    <main>
+    <main className="font-caveat">
       <form></form>
-      <button onClick={signInWithGoogle} className="bg-black text-white">
+      <button onClick={signInWithGoogle} className="text-xl md:text-2xl border border-black px-6 py-2 rounded-md">
         Google
       </button>
+      {error && <p>{error}</p>}
     </main>
   );
 };
