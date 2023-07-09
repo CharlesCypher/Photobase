@@ -64,7 +64,7 @@ const UploadForm = () => {
               </p>
               <p className="text-lg text-gray-500 dark:text-gray-400">SVG, PNG, JPG or WEBP</p>
             </div>
-            <input id="dropzone-file" accept="image/*,capture=camera" capture="”camera" type="file" className="hidden" />
+            <input id="dropzone-file" accept="image/*" type="file" className="hidden" />
           </label>
         </motion.div>
       </form>
