@@ -20,11 +20,11 @@ const UploadForm = () => {
     <>
       <form className="mb-8" onChange={changeHandler}>
         <motion.div
-          className="flex items-center justify-center w-full"
+          className="flex items-center justify-center w-full font-shadow"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
-            duration: 0.8,
+            duration: 0.4,
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
@@ -49,10 +49,10 @@ const UploadForm = () => {
                   d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                 />
               </svg>
-              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+              <p className="mb-2 text-xl text-gray-500 dark:text-gray-400">
                 <span className="font-semibold">Click to upload</span>
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or WEBP</p>
+              <p className="text-lg text-gray-500 dark:text-gray-400">SVG, PNG, JPG or WEBP</p>
             </div>
             <input id="dropzone-file" type="file" className="hidden" />
           </label>

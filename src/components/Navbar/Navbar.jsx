@@ -5,11 +5,11 @@ import { auth } from "../../config/firebase";
 const Navbar = () => {
   return (
     <header>
-      <nav className="w-full h-20 flex justify-between items-center">
-        <h2 className="text-xl md:text-2xl font-semibold">
+      <nav className="w-full h-20 flex justify-between items-center font-caveat">
+        <h2 className="text-2xl md:text-3xl font-semibold">
           <Link to="/">Grambase</Link>
         </h2>
-        <ul className="hidden md:flex items-center gap-x-10 text-base md:text-lg">
+        <ul className="hidden md:flex items-center gap-x-10 text-2xl">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link to="/">About</Link>
           </li>
         </ul>
-        <button className="text-base md:text-lg border border-black px-6 py-2 rounded-md" onClick={() => signOut(auth)}>
+        <button className="text-xl md:text-2xl border border-black px-6 py-2 rounded-md" onClick={() => signOut(auth)}>
           Sign out
         </button>
       </nav>
