@@ -17,7 +17,7 @@ const Login = () => {
   return (
     <main className="font-caveat">
       <form></form>
-      <button onClick={signInWithGoogle} className="text-xl md:text-2xl border border-black px-6 py-2 rounded-md">
+      <button onClick={signInWithGoogle} className="text-xl md:text-2xl border border-black px-4 py-1 sm:px-6 sm:py-2 rounded-md">
         Google
       </button>
       {error && <p>{error}</p>}

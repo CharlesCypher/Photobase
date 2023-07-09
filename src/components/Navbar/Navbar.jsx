@@ -14,12 +14,12 @@ const Navbar = () => {
         </h2>
         <ul className="hidden md:flex items-center gap-x-10 text-2xl">
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
             <Link to="/">Gallery</Link>
           </li>
-          <li>
+          <li className="hidden">
+            <Link to="/">Gallery</Link>
+          </li>
+          <li className="hidden">
             <Link to="/">About</Link>
           </li>
         </ul>
