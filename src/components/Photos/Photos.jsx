@@ -11,10 +11,10 @@ const Photos = ({ setSelectedImg }) => {
   const [id, setId] = useState(null);
   const { docs, error } = useFirestore("images");
   const { currentUser } = useContext(AuthContext);
-  const collectionRef = collection(db, "images");
+  // const collectionRef = collection(db, "images");
   const userRef = doc(db, "images", `${id}`);
   const handleDelete = async () => {
-    const likeDocs = query(collectionRef, where("userID", "==", `${currentUser?.uid}`));
+    // const likeDocs = query(collectionRef, where("userID", "==", `${currentUser?.uid}`));
     await deleteDoc(userRef);
   };
   const truncate = (str, n) => {
