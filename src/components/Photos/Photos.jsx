@@ -25,7 +25,7 @@ const Photos = () => {
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="">
                 {truncate(image?.user, 16)}
               </motion.p>
-              <motion.img src={image?.userPhoto} className="block sm:w-8 sm:h-8 rounded-full" />
+              <motion.img src={image?.userPhoto} className="block w-8 h-8 sm:w-10 sm:h-10 rounded-full" />
             </motion.div>
           </motion.div>
         ))}
