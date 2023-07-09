@@ -1,21 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Compressor from "compressorjs";
 import ProgressBar from "../Progress/ProgressBar";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
+  const [compressedFile, setCompressedFile] = useState(null);
   const [error, setError] = useState(null);
   const changeHandler = (e) => {
-    const types = ["image/svg", "image/png", "image/jpg", "image/webp", "image/jpeg", "image/heic"];
+    // const types = ["image/svg", "image/png", "image/jpg", "image/webp", "image/jpeg", "image/heic"];
     const selectedImg = e.target.files[0];
-    if (selectedImg && types.includes(selectedImg.type)) {
-      setFile(selectedImg);
-      setError("");
+    if (selectedImg) {
+      new Compressor(selectedImg, {
+        quality: 0.6,
+        success: (compressedResult) => {
+          setCompressedFile(compressedResult);
+          setError("");
+        },
+      });
     } else {
       setFile(null);
       setError("Upload must be an image");
     }
   };
+  useEffect(() => {
+    setFile(compressedFile);
+  }, [compressedFile]);
   return (
     <>
       <form className="mb-8" onChange={changeHandler}>
@@ -54,13 +64,13 @@ const UploadForm = () => {
               </p>
               <p className="text-lg text-gray-500 dark:text-gray-400">SVG, PNG, JPG or WEBP</p>
             </div>
-            <input id="dropzone-file" type="file" className="hidden" />
+            <input id="dropzone-file" accept="image/*,capture=camera" capture="”camera" type="file" className="hidden" />
           </label>
         </motion.div>
       </form>
       {file && (
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mb-2">
-          {file.name}
+          {file?.name}
         </motion.p>
       )}
       {file && <ProgressBar file={file} setFile={setFile} />}

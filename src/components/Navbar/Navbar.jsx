@@ -24,8 +24,8 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="flex items-center gap-4">
-          <img src={currentUser?.photoURL} className="hidden sm:block sm:w-10 sm:h-10 rounded-full" />
-          <button className="text-xl md:text-2xl border border-black px-6 py-2 rounded-md" onClick={() => signOut(auth)}>
+          <img src={currentUser?.photoURL} className="hidden sm:block sm:w-8 sm:h-8 rounded-full" />
+          <button className="text-xl md:text-2xl border border-black px-4 py-1 sm:px-6 sm:py-2 rounded-md" onClick={() => signOut(auth)}>
             {currentUser ? "Sign out" : "Login"}
           </button>
         </div>

@@ -13,7 +13,7 @@ const useStorage = (file) => {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
-    const storageRef = ref(storage, file.name);
+    const storageRef = ref(storage, file?.name);
     const collectionRef = doc(collection(db, "images"));
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -30,8 +30,9 @@ const useStorage = (file) => {
         const url = await getDownloadURL(uploadTask.snapshot.ref);
         const createdAt = serverTimestamp();
         const user = currentUser?.displayName;
+        const userID = currentUser?.uid;
         const userPhoto = currentUser?.photoURL;
-        await setDoc(collectionRef, { url: url, createdAt: createdAt, user: user, userPhoto: userPhoto });
+        await setDoc(collectionRef, { url: url, createdAt: createdAt, user: user, userID: userID, userPhoto: userPhoto });
         setUrl(url);
       }
     );

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useStorage from "../../hooks/useStorage";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ProgressBar = ({ file, setFile }) => {
   const { progress, url } = useStorage(file);

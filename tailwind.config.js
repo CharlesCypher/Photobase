@@ -11,6 +11,9 @@ export default {
         primary: "#fffffd",
         secondary: "#ffa69e",
       },
+      backgroundColor: {
+        backdrop: "rgba(0, 0, 0, 0.5)",
+      },
     },
   },
   plugins: [],
