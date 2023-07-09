@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Trash } from "phosphor-react";
-import { collection, deleteDoc, doc, query, where } from "firebase/firestore";
+import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
 const Photos = ({ setSelectedImg }) => {
@@ -27,7 +27,7 @@ const Photos = ({ setSelectedImg }) => {
         .map((image) => (
           <div className="relative" key={image?.id}>
             <div className="">
-              <motion.div className="relative w-full h-80 cursor-pointer" layout onClick={() => setSelectedImg(image?.url)}>
+              <motion.div className="relative w-full h-80 cursor-pointer photo-card__wrapper" layout onClick={() => setSelectedImg(image?.url)}>
                 <motion.img
                   src={image?.url}
                   alt={""}
@@ -43,9 +43,9 @@ const Photos = ({ setSelectedImg }) => {
                   <motion.img src={image?.userPhoto} className="block w-8 h-8 sm:w-10 sm:h-10 rounded-full" />
                 </motion.div>
               </motion.div>
-              <div className="absolute top-3 right-3" onClick={() => setId(image?.id)}>
-                {currentUser?.uid === image?.userID && <Trash className="text-xl sm:text-2xl text-white cursor-pointer" onClick={handleDelete} />}
-              </div>
+              <motion.div className="absolute top-3 right-3" whileTap={() => setId(image?.id)} onClick={handleDelete}>
+                {currentUser?.uid === image?.userID && <Trash className="text-xl sm:text-2xl text-white cursor-pointer" />}
+              </motion.div>
             </div>
           </div>
         ))}
