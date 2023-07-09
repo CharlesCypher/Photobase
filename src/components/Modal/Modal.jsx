@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { WhatsappShareButton, WhatsappIcon } from "react-share";
 
 const Modal = ({ selectedImg, setSelectedImg }) => {
   const handleModal = (e) => {
@@ -15,6 +16,9 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
+        <WhatsappShareButton url={selectedImg} quote={"Dummy text!"} hashtag="#muo">
+          <WhatsappIcon size={32} round />
+        </WhatsappShareButton>
         <motion.div
           className="relative w-full mx-auto h-auto sm:h-[80%] py-0 sm:py-10 bg-primary rounded-xl overflow-hidden z-50"
           initial={{ y: 100 }}
