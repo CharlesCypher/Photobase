@@ -16,7 +16,7 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <WhatsappShareButton url={selectedImg} quote={"Dummy text!"} hashtag="#muo">
+        <WhatsappShareButton url={selectedImg} quote={"Dummy text!"} hashtag="#muo" className="absolute bottom-6">
           <WhatsappIcon size={32} round />
         </WhatsappShareButton>
         <motion.div

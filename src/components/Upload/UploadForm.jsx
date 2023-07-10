@@ -12,10 +12,14 @@ const UploadForm = () => {
     const selectedImg = e.target.files[0];
     if (selectedImg) {
       new Compressor(selectedImg, {
-        quality: 0.6,
+        quality: 0.8,
         success: (compressedResult) => {
           setCompressedFile(compressedResult);
           setError("");
+        },
+        error: (err) => {
+          setFile(null);
+          setError(err.message);
         },
       });
     } else {
@@ -75,7 +79,7 @@ const UploadForm = () => {
       )}
       {file && <ProgressBar file={file} setFile={setFile} />}
       {error && (
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mb-4">
           {error}
         </motion.p>
       )}
