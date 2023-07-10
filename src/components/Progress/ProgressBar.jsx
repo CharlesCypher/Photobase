@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useStorage from "../../hooks/useStorage";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ProgressBar = ({ file, setFile }) => {
   const { progress, url } = useStorage(file);
@@ -10,11 +10,14 @@ const ProgressBar = ({ file, setFile }) => {
     }
   }, [url]);
   return (
-    <motion.div
-      className="bg-secondary w-0 h-2 rounded-md mb-4"
-      initial={{ opacity: 0, width: 0 }}
-      animate={{ opacity: 1, width: progress + "%" }}
-    ></motion.div>
+    <AnimatePresence>
+      <motion.div
+        className="bg-secondary w-0 h-2 rounded-md mb-4"
+        initial={{ opacity: 0, width: 0 }}
+        animate={{ opacity: 1, width: progress + "%" }}
+        exit={{ opacity: 0 }}
+      ></motion.div>
+    </AnimatePresence>
   );
 };
 
